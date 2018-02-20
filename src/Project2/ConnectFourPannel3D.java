@@ -140,7 +140,7 @@ public class ConnectFourPannel3D extends JFrame implements ActionListener{
 			if (currentBoard - 1 >= 0){
 				currentBoard--;
 			}else{
-				currentBoard = 0;
+				currentBoard = 4;
 			}
 			
 			fillBoard(currentBoard);
