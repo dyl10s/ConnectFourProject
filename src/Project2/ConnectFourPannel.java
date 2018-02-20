@@ -95,6 +95,7 @@ public class ConnectFourPannel extends JFrame implements ActionListener {
 					if (game.isWinner(1)) {
 						JOptionPane.showMessageDialog(this, "You have lost!");
 					}
+					
 					game.switchPlayer();
 					displayAIVision();
 					

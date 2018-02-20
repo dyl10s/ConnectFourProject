@@ -9,9 +9,9 @@ public class ConnectFour {
 		int gameMode = 0;
 		
 		if (gameMode == 0){
-			JFrame game3d = new ConnectFourPannel3D();
+			new ConnectFourPannel3D();
 		}else{
-			JFrame game = new ConnectFourPannel();
+			new ConnectFourPannel();
 		}
 		
 		
