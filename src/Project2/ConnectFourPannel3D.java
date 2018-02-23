@@ -6,7 +6,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.print.attribute.standard.JobMessageFromOperator;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -38,7 +37,7 @@ public class ConnectFourPannel3D extends JFrame implements ActionListener{
 
 		int bSize = 10;
 		String strBdSize;
-		strBdSize = JOptionPane.showInputDialog(null, "Enter	board	size");
+		strBdSize = JOptionPane.showInputDialog(null, "Enter board size");
 		bSize = Integer.parseInt(strBdSize);
 		boardSize = bSize;
 		game = new ConnectFourGame3D(bSize);

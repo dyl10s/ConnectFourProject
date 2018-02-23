@@ -41,7 +41,97 @@ public class ConnectFourGame3D {
 			}
 		}
 		
+		
+		if (checkDirection(0, 0, 1, playerNum) >= 4){
+			return true;
+		}
+		
+		if (checkDirection(0, 1, 1, playerNum) >= 4){
+			return true;
+		}
+		
+		if (checkDirection(1, 0, 1, playerNum) >= 4){
+			return true;
+		}
+		
+		if (checkDirection(-1, 0, 1, playerNum) >= 4){
+			return true;
+		}
+		
+		if (checkDirection(0, -1, 1, playerNum) >= 4){
+			return true;
+		}
+		
 		return false;
+	}
+	
+	public int checkDirection(int xChange, int yChange, int zChange, int playerNum){
+		
+		int highscore = 0;
+		
+		int inRow = 0;
+		boolean hasNext = true;
+		
+		int currentX = xChange;
+		int currentY = yChange;
+		int currentZ = zChange;
+		
+		int player = playerNum;
+		
+		for (int x = 0; x < size; x++){
+			for (int y = 0; y < size; y++){
+				for (int z = 0; z < size; z++){
+					
+					if (this.getBoard()[z].getBoard()[x][y] == player){
+						
+						inRow += 1;
+						
+					}
+					
+					do{
+						
+						if(z + currentZ >= size  || y + currentY >= size || x + currentX >= size){
+							currentX = xChange;
+							currentY = yChange; 
+							currentZ = zChange;
+							break;
+						}
+						
+						if(z + currentZ < 0  || y + currentY < 0 || x + currentX < 0){
+							currentX = xChange;
+							currentY = yChange; 
+							currentZ = zChange;
+							break;
+						}
+						
+						int currentSpace = this.getBoard()[z + currentZ].getBoard()[x + currentX][y + currentY]; 
+										
+						if (currentSpace == player){
+							inRow += 1;
+							hasNext = true;
+							currentX += xChange;
+							currentY += yChange; 
+							currentZ += zChange; 
+						}else{
+							hasNext = false;
+							currentX = xChange;
+							currentY = yChange; 
+							currentZ = zChange;
+						}
+						
+					}while(hasNext);
+					
+					if (inRow > highscore){
+						highscore = inRow;
+					}
+					
+					inRow = 0;
+					
+				}
+			}
+		}
+		
+		return highscore;
 	}
 	
 	public boolean canPlay(int x, int y, int z) {

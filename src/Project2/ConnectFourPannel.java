@@ -31,7 +31,7 @@ public class ConnectFourPannel extends JFrame implements ActionListener {
 
 		int bSize = 10;
 		String strBdSize;
-		strBdSize = JOptionPane.showInputDialog(null, "Enter	board	size");
+		strBdSize = JOptionPane.showInputDialog(null, "Enter board size");
 		bSize = Integer.parseInt(strBdSize);
 		boardSize = bSize;
 		game = new ConnectFourGame(bSize);
